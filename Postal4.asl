@@ -187,6 +187,7 @@ startup
 }
 init
 {
+	refreshRate = 60;
 	/* Layouts */
 	Int32[] errPtr = new Int32[]{0x118,0x280,0x2b0,-2,0x140,-3,0x323};
 
