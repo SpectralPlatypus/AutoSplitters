@@ -7,16 +7,20 @@ state("Postal4-Win64-Shipping", "v1.0.4.0 (Steam)")
 	// GEngine: 0x051c5e70
 	// GWorld: 0x051c9730
 	// ULocalPlayer*: 51b2500
-	ulong isZapLoading : 0x51b2500,0x30,0xc80;
+	ulong isZapLoading : 0x51b2500,0x30,0xc80,0x0;
 	short day: 0x051c9730, 0x120,0x2c0;
 	byte phoneOpen: 0x51b2500,0x30,0xbb8,0xc3;
-	//bool phonePreventClosing: "Postal4-Win64-Shipping.exe", 0x51b8d40, 0x30, 0xbb8,0x530;
+
 	bool isMovieLoading: 0x51a1158,0xa4;
+
+	bool isInCutscene: 0x51b2500, 0x30, 0x8c0;
 	bool lockInput: 0x51b2500,0x30,0x8f0;
+	ulong loadTimer: 0x51b2500, 0x30, 0xc88;
+
 	byte mapSubMenu: 0x51b2500,0x30,0xbb8,0x34c;
 	byte mapSubMenuOpt: 0x51b2500,0x30,0xbb8,0x350;
 	bool eodMouseDown: 0x51b2500,0x30,0xbb8,0x338,0x148,0xe0,0x141;
-	
+
 	/* Friday EOD */
 	ulong interactObj: 0x51b2500,0x30,0x8a8;
 	byte20 interactText: 0x51b2500,0x30,0x8a8,0x280,0x28,0x0;
@@ -30,16 +34,20 @@ state("Postal4-Win64-Shipping", "v1.0.5.0 (Steam)")
 	// GEngine: 51cc6b0
 	// GWorld : 51cff70
 	// ULocalPlayer*: 51b8d40
-	ulong isZapLoading : 0x51b8d40, 0x30, 0xc80;
+	ulong isZapLoading : 0x51b8d40, 0x30, 0xc80,0x0;
 	short day: 0x51cff70, 0x120, 0x2c0;
 	byte phoneOpen: 0x51b8d40, 0x30, 0xbb8,0xc3;
-	//bool phonePreventClosing: "Postal4-Win64-Shipping.exe", 0x51b8d40, 0x30, 0xbb8,0x530;
+
 	bool isMovieLoading: 0x51a7998,0xa4;
+
+	bool isInCutscene: 0x51b8d40, 0x30, 0x8c0;
 	bool lockInput: 0x51b8d40, 0x30, 0x8f0;
+	ulong loadTimer: 0x51b8d40, 0x30, 0xc88;
+
 	byte mapSubMenu: 0x51b8d40, 0x30, 0xbb8, 0x34c;
 	byte mapSubMenuOpt: 0x51b8d40, 0x30, 0xbb8, 0x350;
 	bool eodMouseDown: 0x51b8d40,0x30,0xbb8,0x338,0x148,0xe0,0x141;
-	
+
 	/* Friday EOD */
 	ulong interactObj: 0x51b8d40, 0x30, 0x8a8;
 	byte20 interactText: 0x51b8d40, 0x30, 0x8a8, 0x280, 0x28,0x0;
@@ -52,17 +60,20 @@ state("Postal4-Win64-Shipping", "v1.0.6.0 (Steam)")
 	// GEngine: 051efdb0
 	// GWorld: 051f3670
 	// ULocalPlayer*: 51dc440
-	ulong isZapLoading : 0x51dc440, 0x30, 0xc90;
+	ulong isZapLoading : 0x51dc440, 0x30, 0xc90,0x0;
 	short day: 0x051f3670, 0x120, 0x2c0;
-	
+
 	bool isMovieLoading: 0x51cb098,0xa4;
 
-	bool lockInput: 0x51dc440, 0x30, 0x908;	
+	bool isInCutscene: 0x51dc440, 0x30, 0x8d8;
+	bool lockInput: 0x51dc440, 0x30, 0x908;
+	ulong loadTimer: 0x51dc440, 0x30, 0xc98;
+
 	byte phoneOpen: 0x51dc440, 0x30, 0xbc8,0xc3;
 	byte mapSubMenu: 0x51dc440, 0x30, 0xbc8, 0x34c;
 	byte mapSubMenuOpt: 0x51dc440, 0x30, 0xbc8, 0x350;
 	bool eodMouseDown: 0x51dc440,0x30,0xbc8,0x338,0x148,0xe0,0x141;
-	
+
 	/* Friday EOD */
 	ulong interactObj: 0x51dc440, 0x30, 0x8c0;
 	byte20 interactText: 0x51dc440, 0x30, 0x8c0, 0x280, 0x28,0x0;
@@ -75,22 +86,31 @@ state("Postal4-Win64-Shipping", "v1.0.7.0 (Steam)")
 	// GEngine: 051fa8b0
 	// GWorld: 051fe170
 	// ULocalPlayer*: 0x1e6f40
-	ulong isZapLoading : 0x51e6f40, 0x30, 0xc90;
+	ulong isZapLoading : 0x51e6f40, 0x30, 0xc90,0x0;
 	short day: 0x51fe170, 0x120, 0x2c0;
-	
+
 	bool isMovieLoading: 0x51d5b98,0xa4;
 
-	bool lockInput: 0x51e6f40, 0x30, 0x908;	
+	bool isInCutscene: 0x51e6f40, 0x30, 0x8d8;
+	bool lockInput: 0x51e6f40, 0x30, 0x908;
+	ulong loadTimer: 0x51e6f40, 0x30, 0xc98;
+
+	byte cursorVisible: 0x51e6f40, 0x30, 0x438;
+
 	byte phoneOpen: 0x51e6f40, 0x30, 0xbc8,0xc3;
 	byte mapSubMenu: 0x51e6f40, 0x30, 0xbc8, 0x34c;
 	byte mapSubMenuOpt: 0x51e6f40, 0x30, 0xbc8, 0x350;
 	bool eodMouseDown: 0x51e6f40,0x30,0xbc8,0x338,0x148,0xe0,0x141;
-	
+
 	/* Friday EOD */
 	ulong interactObj: 0x51e6f40, 0x30, 0x8c0;
 	byte20 interactText: 0x51e6f40, 0x30, 0x8c0, 0x280, 0x28,0x0;
 	float interactTimer: 0x51e6f40, 0x30, 0x8c0, 0x2a4;
 	float interactTimerLim: 0x51e6f40, 0x30, 0x8c0, 0x2a8;
+
+	// Unused for now
+	// bool LockedCameraMode: 0x51e6f40, 0x30, 0x821;
+	// float playerCamAlpha: 0x51e6f40, 0x30, 0x2b8, 0x26d4;
 }
 
 startup
@@ -99,25 +119,25 @@ startup
 	Func<ProcessModuleWow64Safe, string> CalcModuleHash = (module) => {
 		print("Calculating hash of "+ module.FileName);
 		byte[] exeHashBytes = new byte[0];
-		
+
 		using (var sha = System.Security.Cryptography.MD5.Create())
 		{
 			using (var s = File.Open(module.FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 			{
 				exeHashBytes = sha.ComputeHash(s);
-			} 
+			}
 		}
 		var hash = exeHashBytes.Select(x => x.ToString("X2")).Aggregate((a, b) => a + b);
 		print("Hash: "+ hash);
 		return hash;
 	};
 	vars.CalcModuleHash = CalcModuleHash;
-	
+
 	Func<byte[], string> GetUnicode = (txt) => {
 		return Encoding.Unicode.GetString(txt);
 	};
 	vars.GetUtf16 = GetUnicode;
-	
+
 	settings.Add("monday", true, "Monday");
 		settings.Add("SignBeggar", false, "Find A Job", "monday");
 		settings.Add("JobAgency", true, "Check Job Agency", "monday");
@@ -154,52 +174,53 @@ startup
 		settings.Add("BidetBust", true, "Bidet Bust", "fri");
 		settings.Add("OmertaOuster", true, "Omerta Ouster", "fri");
 		settings.Add("MeetBoss", true, "Meet the Boss", "fri");
-		 
+
 	settings.Add("qeod", true, "Split on ending the day from Phone Tab");
 	settings.Add("gameend", true, "Split on Leaving Town");
-	
+
 	vars.errandDays = new MemoryWatcherList[5];
-	for(int i = 0; i < vars.errandDays.Length;++i) 
+	for(int i = 0; i < vars.errandDays.Length;++i)
 		vars.errandDays[i] = new MemoryWatcherList();
-	
+
 	vars.lastSplit = "";
+	vars.checkLoad = false;
 }
 init
 {
 	/* Layouts */
 	Int32[] errPtr = new Int32[]{0x118,0x280,0x2b0,-2,0x140,-3,0x323};
-	
+
 	var module = modules.Single(x => String.Equals(x.ModuleName, "Postal4-Win64-Shipping.exe", StringComparison.OrdinalIgnoreCase));
 	var moduleSize = module.ModuleMemorySize;
 	print("Module Size: "+moduleSize+" "+module.ModuleName);
 	var hash = vars.CalcModuleHash(module);
-	
+
 	Int32 GWorld = 0;
 	if(hash == "0E07367035179E5C99FE57E6E96CC0D1")
 	{
 		version = "v1.0.5.0 (Steam)";
-		GWorld = 0x51cff70;	
+		GWorld = 0x51cff70;
 	}
 	else if(hash == "55CE4CEC1C629433F6F703E8BB419CFD")
 	{
 		version = "v1.0.4.0 (Steam)";
-		GWorld = 0x51c9730;	
+		GWorld = 0x51c9730;
 	}
 	else if (hash == "E1F4CE75CDE0BFD402AE5F252A3FA7DA")
 	{
 		version = "v1.0.6.0 (Steam)";
-		GWorld = 0x51f3670;	
+		GWorld = 0x51f3670;
 	}
 	else if (hash == "EA3848ADA0535A626F6D25F26F7DBFF9")
 	{
 		version = "v1.0.7.0 (Steam)";
-		GWorld = 0x51fe170;	
+		GWorld = 0x51fe170;
 	}
 	else
 	{
 		print("Couldn't detect version, expect trouble!");
 	}
-	
+
 	/* Add Errand memory watchers */
 	if(version != "")
 	{
@@ -241,16 +262,20 @@ init
 				Tuple.Create("OmertaOuster", 5, 4),
 				Tuple.Create("MeetBoss", 6, 4),
 			};
-			
-		foreach(var errand in errandList) 
+
+		foreach(var errand in errandList)
 		{
 			errPtr[3] = errand.Item3*8;
 			errPtr[5] = errand.Item2*8;
-			
-			vars.errandDays[errand.Item3].Add(new MemoryWatcher<bool>(new DeepPointer(GWorld, errPtr)){Name = errand.Item1});
+
+			vars.errandDays[errand.Item3].Add(new MemoryWatcher<bool>(new DeepPointer(GWorld, errPtr))
+			{
+				Name = errand.Item1,
+				FailAction = MemoryWatcher.ReadFailAction.SetZeroOrNull
+			});
 		}
 	}
-} 
+}
 
 start
 {
@@ -266,24 +291,26 @@ start
 update
 {
 	vars.errandDays[current.day].UpdateAll(game);
+	if(current.loadTimer != 0 && (old.loadTimer != current.loadTimer))
+		vars.checkLoad = true;
 }
 
 split
 {
-	foreach (var watcher in vars.errandDays[current.day]) 
+	foreach (var watcher in vars.errandDays[current.day])
 	{
-		if (!watcher.Old && watcher.Current) 
+		if (!watcher.Old && watcher.Current && vars.lastSplit != watcher.Name)
 		{
-			// Avoid a silly bug where the game can toggle the errand value twice
-			if(watcher.Name != vars.lastSplit)
+			// Avoid false splits
+			if(!current.lockInput || watcher.Name == "DamInspector")
 			{
 				vars.lastSplit = watcher.Name;
-				print("Detected Change in: " + watcher.Name + " " + watcher.Old + " " + watcher.Current);
+				//print("Detected Change in: " + watcher.Name);
 				return settings[watcher.Name];
 			}
 		}
 	}
-	
+
 	if(settings["qeod"] && current.mapSubMenu == 8 && current.mapSubMenuOpt == 0)
 	{
 		if(!old.eodMouseDown && current.eodMouseDown)
@@ -291,12 +318,12 @@ split
 			return true;
 		}
 	}
-	if(settings["gameend"] && current.day == 4 && current.interactObj != 0)  
+	if(settings["gameend"] && current.day == 4 && current.interactObj != 0)
 	{
-		string prompt = vars.GetUtf16(current.interactText);	
+		string prompt = vars.GetUtf16(current.interactText);
 		if(prompt.StartsWith("Exit Town") && current.interactTimer >= current.interactTimerLim)
 		{
-			print("Ending game");
+			print("End of game detected");
 			return true;
 		}
 	}
@@ -304,5 +331,15 @@ split
 
 isLoading
 {
-	return !current.isMovieLoading || (current.isZapLoading != 0);
+	/* Lots to unpack here:
+	 * Loads happen async and can sometimes preceed the load screen toggle, which will cause ASL to fail
+	 * vars.checkLoad solely exists to detect calls to `ShowInGameLoadingScreen` without using hooks -- not ideal but it works
+	*/
+	if (!current.isMovieLoading || (current.isZapLoading != 0)) return true;
+	else if(vars.checkLoad)
+	{
+		if(current.lockInput && !current.isInCutscene) return true;
+		vars.checkLoad = false;
+	}
+	return false;
 }
