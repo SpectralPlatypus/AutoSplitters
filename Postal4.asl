@@ -85,7 +85,7 @@ state("Postal4-Win64-Shipping", "v1.0.7.0 (Steam)")
 {
 	// GEngine: 051fa8b0
 	// GWorld: 051fe170
-	// ULocalPlayer*: 0x1e6f40
+	// ULocalPlayer*: 0x51e6f40
 	ulong isZapLoading : 0x51e6f40, 0x30, 0xc90,0x0;
 	short day: 0x51fe170, 0x120, 0x2c0;
 
@@ -111,6 +111,38 @@ state("Postal4-Win64-Shipping", "v1.0.7.0 (Steam)")
 	// Unused for now
 	// bool LockedCameraMode: 0x51e6f40, 0x30, 0x821;
 	// float playerCamAlpha: 0x51e6f40, 0x30, 0x2b8, 0x26d4;
+}
+
+state("Postal4-Win64-Shipping", "v1.1.0 (Steam)")
+{
+	// GEngine: 058cc818
+	// GWorld: 058d0138
+	// ULocalPlayer*: 0x58b8710
+	ulong isZapLoading : 0x58b8710, 0x30, 0xc98,0x0;
+	short day: 0x58d0138, 0x120, 0x380;
+
+	bool isMovieLoading: 0x58a74f8,0xa4;
+
+	bool isInCutscene: 0x58b8710, 0x30, 0x8d8;
+	bool lockInput: 0x58b8710, 0x30, 0x908;
+	ulong loadTimer: 0x58b8710, 0x30, 0xc98;
+
+	byte cursorVisible: 0x58b8710, 0x30, 0x438;
+
+	byte phoneOpen: 0x58b8710, 0x30, 0xbd8,0xc3;
+	byte mapSubMenu: 0x58b8710, 0x30, 0xbd8, 0x34c;
+	byte mapSubMenuOpt: 0x58b8710, 0x30, 0xbd8, 0x350;
+	bool eodYesHighlight: 0x58b8710,0x30,0xbd8,0x338,0x148,0xe0,0x140;
+
+	/* Friday EOD */
+	ulong interactObj: 0x58b8710, 0x30, 0x8c0;
+	byte20 interactText: 0x58b8710, 0x30, 0x8c0, 0x288, 0x28,0x0;
+	float interactTimer: 0x58b8710, 0x30, 0x8c0, 0x2ac;
+	float interactTimerLim: 0x58b8710, 0x30, 0x8c0, 0x2b0;
+
+	// Unused for now
+	// bool LockedCameraMode: 0x58b8710, 0x30, 0x821;
+	// float playerCamAlpha: 0x58b8710, 0x30, 0x2b8, 0x26d4;
 }
 
 startup
@@ -183,6 +215,7 @@ startup
 		vars.errandDays[i] = new MemoryWatcherList();
 
 	vars.lastSplit = "";
+	vars.endCheckOnce = true;
 	vars.checkLoad = false;
 }
 init
@@ -216,6 +249,13 @@ init
 	{
 		version = "v1.0.7.0 (Steam)";
 		GWorld = 0x51fe170;
+	}
+	else if (hash == "E22B18C110C0804622BC5DDC998DBA58")
+	{
+		version = "v1.1.0 (Steam)";
+		GWorld = 0x58d0138;
+		//DayList offset changed
+		errPtr[2] = 0x370;
 	}
 	else
 	{
@@ -284,6 +324,7 @@ start
 	{
 		print("Starting Timer");
 		vars.lastSplit = "";
+		vars.endCheckOnce = true;
 		return true;
 	}
 	return false;
@@ -322,10 +363,15 @@ split
 	if(settings["gameend"] && current.day == 4 && current.interactObj != 0)
 	{
 		string prompt = vars.GetUtf16(current.interactText);
-		if(prompt.StartsWith("Exit Town") && current.interactTimer >= current.interactTimerLim)
+		if(prompt.StartsWith("Exit Town") && vars.endCheckOnce)
 		{
-			print("End of game detected");
-			return true;
+			float tolerance = current.interactTimer*0.001f; 
+			if(current.interactTimerLim-current.interactTimer <= tolerance)
+			{
+				print("End of game detected");
+				vars.endCheckOnce = false;
+				return true;
+			}
 		}
 	}
 }
