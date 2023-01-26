@@ -98,6 +98,11 @@ init
 		version = "v1.3.3";
 		DinkyVM = 0x587798;	
 	}
+	else if (hash == "4F6F23669F0E2A42FFEAEB3FD93E7174")
+	{
+		version = "v1.5";
+		DinkyVM = 0x5887a8;
+	}
 	else
 	{
 		print("Unknown/unsupported version hash!");
