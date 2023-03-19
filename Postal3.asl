@@ -5,7 +5,7 @@ state("p3")
 
 startup
 {
-	settings.Add("MultimapSplit", true, "Disable splitting during multi-map levels");
+    settings.Add("MultimapSplit", true, "Disable splitting during multi-map levels");
 }
 
 init
