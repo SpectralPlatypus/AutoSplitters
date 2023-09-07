@@ -169,6 +169,34 @@ state("Postal4-Win64-Shipping", "v1.1.1 (Steam)")
 	float interactTimerLim: 0x58ff4d0, 0x30, 0x8c0, 0x2b0;
 }
 
+state("Postal4-Win64-Shipping", "v1.1.2 (Steam)")
+{
+	// GEngine: 5977d58
+	// GWorld: 597b678
+	// ULocalPlayer*: 0x5963c50
+	ulong isZapLoading : 0x5963c50, 0x30, 0xd28,0x0;
+	short day: 0x597b678, 0x120, 0x398;
+
+	bool isMovieLoading: 0x5952a38,0xa4;
+
+	bool isInCutscene: 0x5963c50, 0x30, 0x8d8;
+	bool lockInput: 0x5963c50, 0x30, 0x988;
+	ulong loadTimer: 0x5963c50, 0x30, 0xc98;
+
+	byte cursorVisible: 0x5963c50, 0x30, 0x438;
+
+	byte phoneOpen: 0x5963c50, 0x30, 0xc60,0xc3;
+	byte mapSubMenu: 0x5963c50, 0x30, 0xc60, 0x548;
+	byte mapSubMenuOpt: 0x5963c50, 0x30, 0xc60, 0x550;
+	bool eodYesHighlight: 0x5963c50,0x30,0xc60,0x338,0x148,0xe0,0x140;
+
+	/* Friday EOD */
+	ulong interactObj: 0x5963c50, 0x30, 0x940;
+	byte20 interactText: 0x5963c50, 0x30, 0x940, 0x290, 0x28,0x0;
+	float interactTimer: 0x5963c50, 0x30, 0x940, 0x2b4;
+	float interactTimerLim: 0x5963c50, 0x30, 0x940, 0x2b8;
+}
+
 startup
 {
 	// Based on: https://github.com/NoTeefy/LiveSnips/blob/master/src/snippets/checksum(hashing)/checksum.asl
@@ -287,6 +315,14 @@ init
 		GWorld = 0x5916ef8;
 		errPtr[2] = 0x370;
 	}
+	else if (hash == "C3DC15DAD2399787ACD52BA094586E03")
+	{
+		version = "v1.1.2 (Steam)";
+		GWorld = 0x597b678;
+		errPtr[2] = 0x388;
+		//bIsCompleted offset change
+		errPtr[6] = 0x32b;
+	}
 	else
 	{
 		print("Couldn't detect version, expect trouble!");
@@ -295,7 +331,7 @@ init
 	/* Add Errand memory watchers */
 	if(version != "")
 	{
-		var errandList = new List<Tuple<string, int, int>> // name, offset, day`
+		var errandList = new List<Tuple<string, int, int>> // name, offset, day
 			{
 				/* Mon */
 				Tuple.Create("SignBeggar", 0, 0),
@@ -390,6 +426,7 @@ split
 			return true;
 		}
 	}
+
 	if(settings["gameend"] && current.day == 4 && current.interactObj != 0)
 	{
 		string prompt = vars.GetUtf16(current.interactText);
