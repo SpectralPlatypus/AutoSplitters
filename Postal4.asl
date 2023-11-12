@@ -225,6 +225,34 @@ state("Postal4-Win64-Shipping", "v1.1.3 (Steam)")
 	float interactTimerLim: 0x5963d50, 0x30, 0x940, 0x2b8;
 }
 
+state("Postal4-Win64-Shipping", "v1.2.0 (Steam)")
+{
+	// GEngine: 55808d8
+	// GWorld: 55841f8
+	// ULocalPlayer*: 0x556c7c0
+	ulong isZapLoading : 0x556c7c0, 0x30, 0xd30,0x0;
+	short day: 0x55841f8, 0x120, 0x3a8;
+
+	bool isMovieLoading: 0x0555b5a8,0xa4;
+
+	bool isInCutscene: 0x556c7c0, 0x30, 0x958;
+	bool lockInput: 0x556c7c0, 0x30, 0x988;
+	ulong loadTimer: 0x556c7c0, 0x30, 0xc98;
+
+	byte cursorVisible: 0x556c7c0, 0x30, 0x438;
+
+	byte phoneOpen: 0x556c7c0, 0x30, 0xc68,0xc3;
+	byte mapSubMenu: 0x556c7c0, 0x30, 0xc68, 0x548;
+	byte mapSubMenuOpt: 0x556c7c0, 0x30, 0xc68, 0x550;
+	bool eodYesHighlight: 0x556c7c0,0x30,0xc68,0x338,0x148,0xe0,0x140;
+
+	/* Friday EOD */
+	ulong interactObj: 0x556c7c0, 0x30, 0x940;
+	byte20 interactText: 0x556c7c0, 0x30, 0x940, 0x290, 0x28,0x0;
+	float interactTimer: 0x556c7c0, 0x30, 0x940, 0x2b4;
+	float interactTimerLim: 0x556c7c0, 0x30, 0x940, 0x2b8;
+}
+
 startup
 {
 	// Based on: https://github.com/NoTeefy/LiveSnips/blob/master/src/snippets/checksum(hashing)/checksum.asl
@@ -356,6 +384,14 @@ init
 		version = "v1.1.3 (Steam)";
 		GWorld = 0x597b778;
 		errPtr[2] = 0x388;
+		//bIsCompleted offset change
+		errPtr[6] = 0x32b;
+	}
+		else if (hash == "324812AA79A33DF659007D674D3144DC")
+	{
+		version = "v1.2.0 (Steam)";
+		GWorld = 0x55841f8;
+		errPtr[2] = 0x398;
 		//bIsCompleted offset change
 		errPtr[6] = 0x32b;
 	}
