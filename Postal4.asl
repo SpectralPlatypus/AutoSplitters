@@ -253,7 +253,7 @@ state("Postal4-Win64-Shipping", "v1.2.0 (Steam)")
 	float interactTimerLim: 0x556c7c0, 0x30, 0x940, 0x2b8;
 }
 
-state("Postal4-Win64-Shipping", "v1.3.0 (Steam)")
+state("Postal4-Win64-Shipping", "v1.3.0|1 (Steam)")
 {
 	// GEngine: 55d4c88
 	// GWorld: 55d85a8
@@ -421,9 +421,9 @@ init
 		errPtr[2] = 0x398;
 		errPtr[6] = 0x32b;
 	}
-	else if (hash == "B27EFDDCB6E5E9947C12948F6DDAF23D")
+	else if (hash == "B27EFDDCB6E5E9947C12948F6DDAF23D" || hash == "21D713ECDB81FE3F1F549AAA30A1D86D")
 		{
-		version = "v1.3.0 (Steam)";
+		version = "v1.3.0|1 (Steam)";
 		GWorld = 0x55D85A8;
 		errPtr[2] = 0x398;
 		//Errand List ptr changed
